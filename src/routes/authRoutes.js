@@ -1,4 +1,4 @@
-const BaseRoute = require("../../../aula19-hapi-swagger/src/routes/base/baseRoute");
+const BaseRoute = require("../../src/routes/base/baseRoute");
 const Joi = require("joi");
 const Boom = require("boom");
 const failAction = (request, headers, erro) => {

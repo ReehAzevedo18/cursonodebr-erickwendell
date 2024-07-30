@@ -39,6 +39,9 @@ const Inert = require('inert')
 //Auth
 const JWT_SECRET = process.env.JWT_KEY;
 
+//Instanbul -- TESTE COVERAGE
+const UtilRoutes = require('./src/routes/utilRoutes')
+
 const { version } = require('joi')
 const { error } = require('console')
 
@@ -98,7 +101,8 @@ async function main(){
     //Não é necessário preencher cada método usando dessa forma
     app.route([
         ...mapRoutes(new HeroRoutes(context), HeroRoutes.methods()),
-        ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods())
+        ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods()),
+        ...mapRoutes(new UtilRoutes(), UtilRoutes.methods())
     ])
 
     await app.start()
